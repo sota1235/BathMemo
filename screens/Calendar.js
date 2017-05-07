@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
-  Text,
   View,
-  Button,
 } from 'react-native';
-import Navigator from 'native-navigation';
+import moment from 'moment';
 import Screen from '../components/Screen';
 import CalendarComponent from 'react-native-calendar-component';
 import { CALENDAR, RECORDBATH, BATHDETAIL } from '../routes';
 
 export default class Calendar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.date = this.props.date;
+
+    if (this.date === null || this.date === undefined) {
+      this.date = moment();
+    }
+  }
+
   render() {
     return (
       <Screen>
         <View style={styles.container}>
-          <CalendarComponent />
+          <CalendarComponent
+            date={this.date.toDate()}
+          />
         </View>
       </Screen>
     );
