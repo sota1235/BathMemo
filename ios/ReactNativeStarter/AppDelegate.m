@@ -24,7 +24,7 @@
   [coordinator setDelegate:self];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  ReactViewController *mainViewController = [[ReactViewController alloc] initWithModuleName:@"ScreenOne"];
+  ReactViewController *mainViewController = [[ReactViewController alloc] initWithModuleName:@"Calendar"];
   self.window.rootViewController = [[coordinator navigation] makeNavigationControllerWithRootViewController:mainViewController];
   [self.window makeKeyAndVisible];
   return YES;

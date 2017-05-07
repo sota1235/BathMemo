@@ -6,6 +6,6 @@ public class MainActivity extends ReactActivity {
 
     @Override
     protected String getInitialScreenName() {
-        return "ScreenOne";
+        return "Calendar";
     }
 }

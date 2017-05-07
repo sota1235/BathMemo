@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import Navigator from 'native-navigation';
 import Screen from '../components/Screen';
-import { CALENDAR } from '../routes';
+import { CALENDAR, RECORDBATH, BATHDETAIL } from '../routes';
 
 export default class Calendar extends Component {
   render() {
@@ -16,23 +16,25 @@ export default class Calendar extends Component {
       <Screen>
         <View style={styles.container}>
           <Text style={styles.welcome}>
-            Welcome to React Native!
+            Calendar Screen
           </Text>
-          <Text style={styles.instructions}>
-            Add more screen components in the screens directory
-            and register them in index.js
-          </Text>
-          <Text style={styles.instructions}>
-            Double tap R on your keyboard to reload,{'\n'}
-            Shake or press menu button for dev menu
+          <Text>
+            Push Buttons
           </Text>
           <Button
-            title="Push"
-            onPress={() => Navigator.push(SCREENONE)}
+            title="Record Bath"
+            onPress={() => Navigator.push(RECORDBATH)}
           />
           <Button
+            title="Bath Detail"
+            onPress={() => Navigator.push(BATHDETAIL)}
+          />
+          <Text>
+            Other Buttons
+          </Text>
+          <Button
             title="Present"
-            onPress={() => Navigator.present(SCREENONE)}
+            onPress={() => Navigator.present(CALENDAR)}
           />
           <Button
             title="Pop"
@@ -58,10 +60,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });
