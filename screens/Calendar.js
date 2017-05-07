@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navigator from 'native-navigation';
 import {
   StyleSheet,
   View,
@@ -9,14 +10,20 @@ import CalendarComponent from 'react-native-calendar-component';
 import { CALENDAR, RECORDBATH, BATHDETAIL } from '../routes';
 
 export default class Calendar extends Component {
-  constructor(props) {
-    super(props);
+  handlePrevButtonPress(e) {
+    const { date } = this.props;
+    const prevDate = moment(date).subtract(1, 'months').toString();
+    Navigator.push(
+      CALENDAR, { date: prevDate }
+    );
+  }
 
-    this.date = this.props.date;
-
-    if (this.date === null || this.date === undefined) {
-      this.date = moment();
-    }
+  handleNextButtonPress(e) {
+    const { date } = this.props;
+    const nextDate = moment(date).add(1, 'months').toString();
+    Navigator.push(
+      CALENDAR, { date: nextDate }
+    );
   }
 
   render() {
@@ -24,7 +31,9 @@ export default class Calendar extends Component {
       <Screen>
         <View style={styles.container}>
           <CalendarComponent
-            date={this.date.toDate()}
+            date={new Date(this.props.date)}
+            onPrevButtonPress={this.handlePrevButtonPress.bind(this)}
+            onNextButtonPress={this.handleNextButtonPress.bind(this)}
           />
         </View>
       </Screen>
@@ -39,3 +48,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+Calendar.defaultProps = {
+  date: moment().toString(),
+}
