@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import Navigator from 'native-navigation';
 import Screen from '../components/Screen';
+import CalendarComponent from 'react-native-calendar-component';
 import { CALENDAR, RECORDBATH, BATHDETAIL } from '../routes';
 
 export default class Calendar extends Component {
@@ -15,35 +16,7 @@ export default class Calendar extends Component {
     return (
       <Screen>
         <View style={styles.container}>
-          <Text style={styles.welcome}>
-            Calendar Screen
-          </Text>
-          <Text>
-            Push Buttons
-          </Text>
-          <Button
-            title="Record Bath"
-            onPress={() => Navigator.push(RECORDBATH)}
-          />
-          <Button
-            title="Bath Detail"
-            onPress={() => Navigator.push(BATHDETAIL)}
-          />
-          <Text>
-            Other Buttons
-          </Text>
-          <Button
-            title="Present"
-            onPress={() => Navigator.present(CALENDAR)}
-          />
-          <Button
-            title="Pop"
-            onPress={() => Navigator.pop()}
-          />
-          <Button
-            title="Dismiss"
-            onPress={() => Navigator.dismiss()}
-          />
+          <CalendarComponent />
         </View>
       </Screen>
     );
@@ -55,10 +28,5 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: 'center',
     alignItems: 'center',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
   },
 });
