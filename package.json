@@ -8,6 +8,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "moment": "^2.18.1",
     "native-navigation": "^0.1.0",
     "react": "15.4.2",
     "react-native": "^0.42.0",
